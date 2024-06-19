@@ -12,43 +12,81 @@ codeit sprint 사전과제 Todo 프로젝트
 # 폴더 구조
 
 📦src
+
  ┣ 📂app
+
  ┃ ┣ 📂item
+
  ┃ ┃ ┗ 📂[id]
+
  ┃ ┃ ┃ ┗ 📜page.tsx
+
  ┃ ┣ 📜layout.tsx
+
  ┃ ┗ 📜page.tsx
+
  ┣ 📂components
+
  ┃ ┣ 📜Button.tsx
+
  ┃ ┣ 📜Header.tsx
+
  ┃ ┗ 📜SmallButton.tsx
+
  ┣ 📂containers
+
  ┃ ┣ 📂Detail
+
  ┃ ┃ ┣ 📜DetailImage.tsx
+
  ┃ ┃ ┣ 📜DetailItem.tsx
+
  ┃ ┃ ┣ 📜DetailMemo.tsx
+
  ┃ ┃ ┣ 📜DetailTodo.tsx
+
  ┃ ┃ ┗ 📜DetialContent.tsx
+
  ┃ ┗ 📂home
+
  ┃ ┃ ┣ 📜ItemInput.tsx
+
  ┃ ┃ ┣ 📜List.tsx
+
  ┃ ┃ ┗ 📜Todo.tsx
+
  ┣ 📂hooks
+
  ┃ ┗ 📜useInput.tsx
+
  ┣ 📂services
+
  ┃ ┣ 📜image.ts
+
  ┃ ┗ 📜item.ts
+
  ┣ 📂styles
+
  ┃ ┣ 📂components
+
  ┃ ┃ ┣ 📜button.module.css
+
  ┃ ┃ ┗ 📜header.module.css
+
  ┃ ┣ 📂home
+
  ┃ ┃ ┗ 📜page.module.css
+
  ┃ ┣ 📂item
+
  ┃ ┃ ┗ 📜page.module.css
+
  ┃ ┣ 📜globals.css
+
  ┃ ┗ 📜variable.css
+
  ┗ 📂types
+
  ┃ ┗ 📜serviceType.ts
 
 - app : 레이아웃 관련 파일만 존재
