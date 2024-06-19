@@ -1,5 +1,5 @@
 export interface ItemPostRequest {
-    name: string;
+  name: string;
 }
 
 export interface ItemPostResponse {
@@ -36,4 +36,3 @@ export interface ItemPatchRequest {
 export interface ItemDeleteResponse {
   massage: string;
 }
-

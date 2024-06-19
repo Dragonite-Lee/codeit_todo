@@ -8,16 +8,15 @@ export default function Header() {
   return (
     <div className={styles.header_container}>
       <div className={styles.header}>
-        <Link href="/" >
+        <Link href="/">
           <IconLogoLarge />
         </Link>
       </div>
       <div className={styles.header_mobile}>
-        <Link href="/" >
+        <Link href="/">
           <IconLogoSmall />
         </Link>
       </div>
     </div>
   );
-};
-
+}

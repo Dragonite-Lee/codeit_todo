@@ -11,58 +11,59 @@ import DetailImage from "./DetailImage";
 import DetailMemo from "./DetailMemo";
 import Button from "@/components/Button";
 
-
-
 interface TodoProps {
   data: ItemDetailGetResponse;
   onEditItem: (data: ItemPatchRequest, id: number) => void;
   onDeletedItem: (id: number) => void;
 }
 
-export default function DetailContent({ data, onEditItem, onDeletedItem }: TodoProps) {
-  const [postUrl, setPostUrl] = useState<File | null>(null); 
-  const [imageUrl, setImageUrl] = useState<string>(data.imageUrl); 
+export default function DetailContent({
+  data,
+  onEditItem,
+  onDeletedItem,
+}: TodoProps) {
+  const [postUrl, setPostUrl] = useState<File | null>(null);
+  const [imageUrl, setImageUrl] = useState<string>(data.imageUrl);
   const [initialUrl, setInitialUrl] = useState<string>(data.imageUrl);
-  const [memoValue, memoValueHandler, setMemoValue] = useInput('');
+  const [memoValue, memoValueHandler, setMemoValue] = useInput("");
   const [initialMemo, setInitialMemo] = useState<string>(data.memo);
-  
+
   useEffect(() => {
     if (initialMemo) {
-      setMemoValue(initialMemo)
+      setMemoValue(initialMemo);
     }
-  },[])
+  }, []);
 
   const patchData: ItemPatchRequest = {};
 
   useEffect(() => {
+    // 입력값에 따라 수정사항 patchData에 삽입
     if (imageUrl !== initialUrl) {
-      patchData.imageUrl = imageUrl
+      patchData.imageUrl = imageUrl;
     }
     if (initialMemo === null ? memoValue : initialMemo !== memoValue) {
-      patchData.memo = memoValue
+      patchData.memo = memoValue;
     }
-  }, [imageUrl, memoValue])
-  
+  }, [imageUrl, memoValue]);
+
   return (
     <div className={styles.detail_content_container}>
       <div className={styles.content_box}>
-        <DetailImage 
+        <DetailImage
           postUrl={postUrl}
           setPostUrl={setPostUrl}
           initialUrl={data.imageUrl}
           imageUrl={imageUrl}
           setImageUrl={setImageUrl}
         />
-        <DetailMemo 
-          memoValue={memoValue}
-          memoValueHandler={memoValueHandler}
-        />
+        <DetailMemo memoValue={memoValue} memoValueHandler={memoValueHandler} />
       </div>
       <div className={styles.button_box}>
         <div>
-          {imageUrl !== initialUrl || (initialMemo === null ? memoValue : initialMemo !== memoValue) ? (
+          {imageUrl !== initialUrl ||
+          (initialMemo === null ? memoValue : initialMemo !== memoValue) ? (
             <div onClick={() => onEditItem(patchData, data.id)}>
-              <Button 
+              <Button
                 img={IconCheck}
                 text="수정 완료"
                 backgroundColor="--color-lime-300"
@@ -70,7 +71,7 @@ export default function DetailContent({ data, onEditItem, onDeletedItem }: TodoP
               />
             </div>
           ) : (
-            <Button 
+            <Button
               img={IconCheck}
               text="수정 완료"
               backgroundColor="--color-slate-200"
@@ -89,4 +90,4 @@ export default function DetailContent({ data, onEditItem, onDeletedItem }: TodoP
       </div>
     </div>
   );
-};
+}

@@ -1,12 +1,9 @@
 "use client";
 
-
 import styles from "@/styles/item/page.module.css";
 
 import { IconEmptyImg, IconImgEdit, IconImgPlus } from "../../../public/svgs";
-import { useState } from "react";
 import { getImageUrl } from "@/services/image";
-
 
 interface DetailImageProps {
   postUrl: File | null;
@@ -16,26 +13,29 @@ interface DetailImageProps {
   initialUrl: string;
 }
 
-
-export default function DetailImage({ postUrl, setPostUrl, imageUrl, setImageUrl, initialUrl }: DetailImageProps) {
-  
-
+export default function DetailImage({
+  postUrl,
+  setPostUrl,
+  imageUrl,
+  setImageUrl,
+  initialUrl,
+}: DetailImageProps) {
   const handleFileChange = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const files = e.target.files; // 업로드된 파일 가져오기
     if (!files || files.length === 0) return;
-   
+
     const file = files[0];
     setPostUrl(file);
 
     const formData = new FormData();
-    formData.append('image', file);
-   
+    formData.append("image", file);
+
     // 이미지 Url 가져오기
     try {
       const url = await getImageUrl(formData); // 이미지 업로드 함수 호출하여 이미지 URL 받아오기
       setImageUrl(url); // 업로드된 이미지 URL 설정
     } catch (error) {
-      console.error('[DetailImage]:', error);
+      console.error("[DetailImage]:", error);
     }
   };
 
@@ -44,7 +44,7 @@ export default function DetailImage({ postUrl, setPostUrl, imageUrl, setImageUrl
       {imageUrl ? (
         <div className={styles.content_img_box}>
           <img src={imageUrl} alt="미리보기" className={styles.preview_image} />
-          <label className={styles.img_edit}> 
+          <label className={styles.img_edit}>
             <IconImgEdit />
             <input
               type="file"
@@ -72,4 +72,4 @@ export default function DetailImage({ postUrl, setPostUrl, imageUrl, setImageUrl
       )}
     </>
   );
-};
+}

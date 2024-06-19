@@ -1,7 +1,7 @@
 .button_container {
   position: relative;
   width: 164px;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 .button_box {
   display: flex;
@@ -34,7 +34,7 @@
 .small_button_container {
   position: relative;
   width: 52px;
-  margin: 0 auto; 
+  margin: 0 auto;
 }
 .small_button_box {
   display: flex;

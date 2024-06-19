@@ -1,18 +1,17 @@
 "use client";
-import Todo from '@/containers/home/Todo'
-import ItemInput from '@/containers/home/ItemInput'
-import useInput from '@/hooks/useInput';
+import Todo from "@/containers/home/Todo";
+import ItemInput from "@/containers/home/ItemInput";
+import useInput from "@/hooks/useInput";
 
-import { getItems, patchItems, postItems } from '@/services/item'
-import { ItemGetResponse, ItemPatchRequest } from '@/types/serviceType';
-import { useEffect, useState } from 'react';
-
+import { getItems, patchItems, postItems } from "@/services/item";
+import { ItemGetResponse, ItemPatchRequest } from "@/types/serviceType";
+import { useEffect, useState } from "react";
 
 interface ListProps {
   initialData: ItemGetResponse[];
 }
 
-export default function List({initialData}: ListProps) {
+export default function List({ initialData }: ListProps) {
   const [itemsData, setItemsData] = useState<ItemGetResponse[]>(initialData);
   const [inputValue, inputValueHandler, setInputValue] = useInput("");
 
@@ -23,9 +22,9 @@ export default function List({initialData}: ListProps) {
 
     try {
       await postItems(postData);
-      setInputValue('')
+      setInputValue("");
       const updateData = await getItems();
-      setItemsData(updateData)
+      setItemsData(updateData);
     } catch (error) {
       console.error("[postItems Error]:", error);
     }
@@ -45,25 +44,21 @@ export default function List({initialData}: ListProps) {
     const newItem = async () => {
       const updateData = await getItems();
       setItemsData(updateData);
-    }
-    
+    };
+
     newItem();
   }, []);
 
-  
   return (
-    <main >
+    <main>
       <div>
-        <ItemInput 
+        <ItemInput
           inputValue={inputValue}
           onInputChange={inputValueHandler}
           onAddItem={onAddItem}
         />
-        <Todo 
-          data={itemsData} 
-          onCheckedItem={onCheckedItem}
-        />
+        <Todo data={itemsData} onCheckedItem={onCheckedItem} />
       </div>
     </main>
-  )
+  );
 }

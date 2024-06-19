@@ -56,11 +56,9 @@ export const patchItems = async (
   return response.json();
 };
 
-export const deleteItems = async (
-  id: number
-): Promise<ItemDeleteResponse> => {
+export const deleteItems = async (id: number): Promise<ItemDeleteResponse> => {
   const response = await fetch(`${base_url}/${username}/items/${id}`, {
-    method: "DELETE"
+    method: "DELETE",
   });
 
   return response.json();
