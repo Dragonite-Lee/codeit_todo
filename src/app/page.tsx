@@ -1,15 +1,16 @@
+import List from '@/containers/home/List'
 
-import Image from 'next/image'
-import Todo from '@/containers/home/Todo'
+import { getItems } from '@/services/item'
 
 
-export default function Home() {
+export default async function Home() {
+  const itemsData = await getItems()
+
   return (
     <main >
       <div>
-        <Todo />
+        <List initialData={itemsData} />
       </div>
-
     </main>
   )
 }

@@ -14,9 +14,11 @@ import IconCancle from './X.svg';
 import IconCheckedBox from './checked_box.svg';
 import IconNullBox from './null_box.svg';
 import IconImgPlus from './img_plus.svg';
+import IconImgEdit from './img_edit.svg';
 import IconTextPlusWhite from './text_plus_white.svg';
-import IconTextPlusBlack from './text_plus_black.svg'
+import IconTextPlusBlack from './text_plus_black.svg';
 
+// 컴포넌트 형식으로 사용가능하게 함
 export {
     IconTodoLarge,
     IconTodoSmall,
@@ -34,6 +36,7 @@ export {
     IconCheckedBox,
     IconNullBox,
     IconImgPlus,
+    IconImgEdit,
     IconTextPlusBlack,
     IconTextPlusWhite
 };

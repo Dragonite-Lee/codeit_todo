@@ -7,14 +7,16 @@ import { IconLogoLarge, IconLogoSmall } from "../../public/svgs";
 export default function Header() {
   return (
     <div className={styles.header_container}>
-      <Link href="/" >
-        <div className={styles.header}>
+      <div className={styles.header}>
+        <Link href="/" >
           <IconLogoLarge />
-        </div>
-        <div className={styles.header_mobile}>
+        </Link>
+      </div>
+      <div className={styles.header_mobile}>
+        <Link href="/" >
           <IconLogoSmall />
-        </div>
-      </Link>
+        </Link>
+      </div>
     </div>
   );
 };
